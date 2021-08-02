@@ -1,0 +1,616 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title></title>
+        
+ <link rel="stylesheet" type="text/css" href="assets/Print/print.css">
+        <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="assets/css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="assets/css/darkmode.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+        <link href="assets/css/simple-database.css" rel="stylesheet" />
+
+        <link href="assets/css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="assets/css/darkmode.css">
+        <script src="assets/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="assets/js/jquery.min.js"></script>
+
+        <style type="text/css">
+            body{
+                margin-top:20px;
+                color: #484b51;
+            }
+            .text-secondary-d1 {
+                color: #728299!important;
+            }
+            .page-header {
+                margin: 0 0 1rem;
+                padding-bottom: 1rem;
+                padding-top: .5rem;
+                border-bottom: 1px dotted #e2e2e2;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+            .page-title {
+                padding: 0;
+                margin: 0;
+                font-size: 1.75rem;
+                font-weight: 300;
+            }
+            .brc-default-l1 {
+                border-color: #dce9f0!important;
+            }
+            
+            .ml-n1, .mx-n1 {
+                margin-left: -.25rem!important;
+            }
+            .mr-n1, .mx-n1 {
+                margin-right: -.25rem!important;
+            }
+            .mb-4, .my-4 {
+                margin-bottom: 1.5rem!important;
+            }
+            
+            hr {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                border: 0;
+                border-top: 1px solid rgba(0,0,0,.1);
+            }
+            
+            .text-grey-m2 {
+                color: #888a8d!important;
+            }
+            
+            .text-success-m2 {
+                color: #86bd68!important;
+            }
+            
+            .font-bolder, .text-600 {
+                font-weight: 600!important;
+            }
+            
+            .text-110 {
+                font-size: 110%!important;
+            }
+            .text-blue {
+                color: #478fcc!important;
+            }
+            .pb-25, .py-25 {
+                padding-bottom: .75rem!important;
+            }
+            
+            .pt-25, .py-25 {
+                padding-top: .75rem!important;
+            }
+            .bgc-default-tp1 {
+                background-color: rgba(121,169,197,.92)!important;
+            }
+            .bgc-default-l4, .bgc-h-default-l4:hover {
+                background-color: #f3f8fa!important;
+            }
+            .page-header .page-tools {
+                -ms-flex-item-align: end;
+                align-self: flex-end;
+            }
+            
+            .btn-light {
+                color: #757984;
+                background-color: #f5f6f9;
+                border-color: #dddfe4;
+            }
+            .w-2 {
+                width: 1rem;
+            }
+            
+            .text-120 {
+                font-size: 120%!important;
+            }
+            .text-primary-m1 {
+                color: #4087d4!important;
+            }
+            
+            .text-danger-m1 {
+                color: #dd4949!important;
+            }
+            .text-blue-m2 {
+                color: #68a3d5!important;
+            }
+            .text-150 {
+                font-size: 150%!important;
+            }
+            .text-60 {
+                font-size: 60%!important;
+            }
+            .text-grey-m1 {
+                color: #7b7d81!important;
+            }
+            .align-bottom {
+                vertical-align: bottom!important;
+            }
+            
+            
+            
+            
+            
+            
+            
+             
+            
+            
+            
+            </style>
+            
+         </head>
+    <body class="sb-nav-fixed">
+     
+        <div class="loading-overlay is-active">
+            <span class="fas fa-spinner fa-3x fa-spin"></span>
+          </div>
+    
+    
+
+          <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">MobileShop</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"> <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form> 
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="darkMode" checked="">
+                 
+              </div>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><svg class="svg-inline--fa fa-user fa-w-14 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="maintenance.html">Settings</a></li>
+                        <li><a class="dropdown-item" href="maintenance.html">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="maintenance.html">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>            <div id="layoutSidenav">
+    
+
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading">Core</div>
+                <a class="nav-link" href="index.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Dashboard
+                </a>
+                <div class="sb-sidenav-menu-heading">Add Category</div>
+              
+                <a class="nav-link" href="buyadevice.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                  Buy A Device
+                </a>
+    
+                <a class="nav-link" href="selladevice.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                  Sell A Device
+                </a>
+               
+    
+      
+                
+     
+               
+                
+            </div>
+        </div>
+       
+    </nav>
+            </div>            <div id="layoutSidenav_content">
+            
+
+            <div class="page-content container">
+    <!-- <div class="page-header text-blue-d2">
+        <h1 class="page-title text-secondary-d1">
+            Invoice
+            <small class="page-info">
+                <i class="fa fa-angle-double-right text-80"></i>
+                ID: #92            </small>
+        </h1>
+
+        <div class="page-tools">
+            <div class="action-buttons">
+                <a class="btn bg-white btn-light mx-1px text-95" href="print.php?id=92" data-title="Print">
+                    <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+                    Print
+                </a>
+                <a class="btn bg-white btn-light mx-1px text-95" href="#" data-title="PDF">
+                    <i class="mr-1 fa fa-file-pdf-o text-danger-m1 text-120 w-2"></i>
+                    Export
+                </a>
+            </div>
+        </div>
+    </div> -->
+
+     
+    <!-- <div class="container px-0">
+        <div class="row mt-4">
+            <div class="col-12 col-lg-10 offset-lg-1">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="text-center text-150">
+                           
+<img style="width: 200px;height:auto" src="uploads/site/1625942040.png" alt="">
+
+                        </div>
+                    </div>
+                </div> -->
+                <!-- .row -->
+
+                <hr class="row brc-default-l1 mx-n1 mb-4" />
+
+                <!-- <div class="row">
+                    <div class="col-6">
+                        <div>
+                          <span class="text-sm text-grey-m2 align-middle"><b>Customer Name : </b> </span> 
+                            <span id="name" class="text-600 text-110 text-blue align-middle"> </span>
+                        </div>
+                        <div class="text-grey-m2">
+                        <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> <b class="text-600">er</b></div>
+                        <span class="text-sm text-grey-m2 align-middle"><b>Address : </b> </span> 
+                            <div id="address" class="my-1">
+                                                      </div>
+                         
+                        </div>
+                    </div>
+                     
+
+                    <div class="text-95 col-6 align-self-start d-flex justify-content-end">
+                 
+                        <div class="text-grey-m2">
+                            <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
+                                Invoice
+                            </div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span  class="text-600 text-90">ID:</span > <span id="inid"></span>   </div>
+
+                            <div  class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span style="font-size: 15px;line-height: 1;font-weight: 400;"  id="date" >Issue Date:2/8/2021  6:34:41 PM</span>   </div>
+                     
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span> 
+                             <span id="status" class="badge rounded-pill">Paid</span>  </div>
+
+                          
+                        </div>
+                    </div>
+                     
+                </div> -->
+
+
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div>
+                            <span class="text-sm text-grey-m2 align-middle">Name:</span>
+                            <span id="name" class="text-600 text-110 text-blue align-middle"></span>
+                        </div>
+                        <div class="text-grey-m2">
+                            <div id="address" class="my-1">
+                                Street, City
+                            </div>
+                            <!-- <div class="my-1">
+                                State, Country
+                            </div> -->
+                            <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> <b id="phone" class="text-600">111-111-111</b></div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
+                        <hr class="d-sm-none" />
+                        <div class="text-grey-m2">
+                            <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
+                                Invoice
+                            </div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">ID:</span> <span   id="inid"></span> </div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Issue Date: </span> Oct 12, 2019</div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span> <span id="status" class="badge badge-warning badge-pill px-25">Paid</span></div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+
+
+                <div class="mt-4">
+                     
+
+                    <div class="row border-b-2 brc-default-l2"></div>
+  
+                    
+            <div class="table-responsive-sm">
+            <!-- table-striped table-borderless border-0 border-b-2 brc-default-l1 -->
+                <table class="table table-striped">
+                    <thead class="bg-none bgc-default-tp1">
+                        <tr class="text-white">
+                            <th class="opacity-2">SL</th>
+                           
+                            <th>Mobile name</th>
+                            <th>IMEI No</th>
+                            <!-- <th>Qty</th>
+                            <th>Unit Price</th> -->
+                            <th width="140">Amount</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="mobiletable" class="text-95 text-secondary-d3">
+
+
+                     
+
+
+                                           </tbody>
+                </table>
+            </div>
+           
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="row mt-3">
+                        <div class="col-6 text-grey-d2 text-95">
+                          
+                          <!-- Mobile condition -->
+
+
+   
+
+                        <span><b>Mobile Condition : </b> </span>  <img id="new" style='vertical-align:middle;' src='assets/img/wrong.png'>
+<div style='vertical-align:middle; display:inline;'>
+New </div>
+<img id="old" style='vertical-align:middle;' src='assets/img/wrong.png'>
+<div style='vertical-align:middle; display:inline;'>
+Old </div>
+ 
+
+
+ <br><br>
+<!-- select button -->
+
+
+
+<img id="1yow" style='vertical-align:middle;' src='assets/img/wrong.png'>
+<div style='vertical-align:middle; display:inline;'>
+1 Year Official Warranty </div><br>
+<img id="1ysw" style='vertical-align:middle;' src='assets/img/wrong.png'>
+<div style='vertical-align:middle; display:inline;'>
+I Year Service Warranty</div><br>
+<img id="1ypw" style='vertical-align:middle;' src='assets/img/wrong.png'>
+<div style='vertical-align:middle; display:inline;'>
+1 Year Parts Warranty</div><br>
+<img  id="nw" style='vertical-align:middle;' src='assets/img/wrong.png'>
+<div style='vertical-align:middle; display:inline;'>
+No Warranty</div><br>
+<img id="cw" style='vertical-align:middle;' src='assets/img/wrong.png'>
+<div style='vertical-align:middle; display:inline;'>
+Warranty For <span id="cwd"></span> days</div>
+ 
+
+ 
+ 
+
+                        </div>
+
+                        <div class="col-6 text-grey text-90">
+                            <div class="row my-2">
+                                <div class="col-7 text-right" style="padding-left: 40px;">
+                                    Total Price
+                                </div>
+                                <div class="col-5">
+                                    <span id="totalprice" class="text-120" style="float: right;padding-right:40px">0Bdt</span>
+                                </div>
+                            </div>
+
+                            <div class="row my-2">
+                            <div class="col-7 text-right" style="padding-left: 40px;">
+                                    Paid
+                                </div>
+                                <div class="col-5">
+                                    <span id="paid" class="text-120" style="float: right;padding-right:40px">Bdt</span>
+                                </div>
+                            </div>
+
+                            <hr>
+                            <br />
+ 
+                            <div class="row my-2">
+                            <div class="col-7 text-right" style="padding-left: 40px;">
+                                    Due
+                                </div>
+                                <div class="col-5">
+                                    <span id="due"  class="text-120" style="float: right;padding-right:40px">0Bdt</span>
+                                </div>
+                            </div>
+
+                           
+
+                          
+
+
+
+                        </div>
+                    </div>
+
+                <br><br>
+
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- <button type="button" onclick="printJS('invoiceprint', 'html')">
+    Print Form
+ </button> -->
+<!-- <button type="button" onclick="printJS({ printable: 'invoiceprint', type: 'html', header: 'PrintJS - Form Element Selection' })">
+    Print Form with Header
+ </button> -->
+
+
+
+<script>
+    const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+var id=params.id;
+
+ 
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      
+datadom(xhttp.responseText);
+   }
+};
+
+
+xhttp.open("GET", 'https://burger-e7ea8-default-rtdb.firebaseio.com/buyer/'+id+'.json', true);
+xhttp.send();
+
+
+function datadom(data){
+ var data= JSON.parse(data);
+console.log(data);
+ var customer_info = data['customer_info'];
+ var mobile_info = data['mobile_info'];
+ var other = data['other'];
+$("#name").html(customer_info.name)
+$("#address").html(customer_info.address)
+$("#phone").html(customer_info.phone);
+$("#inid").html(id)
+$("#date").html(data.date);
+if(data.other.p_details.pay==1){
+    $("#status").addClass("bg-success")
+}else if(data.other.p_details.pay==2){
+    $("#status").addClass("bg-warning");
+    $("#status").html("unpaid");
+   
+}
+var k=0;
+var totalPrice = 0;
+mobile_info.forEach(element => {
+    k++;
+    $("#mobiletable").append(' <tr> <td>'+k+'</td><td>'+element.m_mobile + ' ('+element.m_ram +', '+element.m_rom  +') </td><td>'+element.m_imei1+' <br>'+element.m_imei2+'</td>  <td class="text-secondary-d2">'+element.m_price+' </td></tr>');
+    totalPrice+= parseInt(element.m_price);
+});
+
+var warrenty = other.m_condition.warrenty;
+var condition  = other.m_condition.condition;
+
+var paydetails = other.p_details;
+$("#due").html(totalPrice - paydetails.p_money)  ;
+$("#paid").html(paydetails.p_money);
+if(condition==1){
+    $("#new")[0].src="assets/img/right.png"
+}else if(condition==2){
+    $("#old")[0].src="assets/img/right.png"
+}
+$("#totalprice").html(totalPrice);
+
+if(warrenty==1){
+$("#1yow")[0].src="assets/img/right.png";
+}else if(warrenty==2){
+    $("#1ysw")[0].src="assets/img/right.png";
+}else if(warrenty==3){
+    $("#1ypw")[0].src="assets/img/right.png";
+}else if(warrenty==4){
+    $("#nw")[0].src="assets/img/right.png";
+}else if(warrenty==5){
+    $("#cw")[0].src="assets/img/right.png";
+    $("#cwd").html(other.m_condition.warrentydays)
+}
+
+
+
+$(".loading-overlay").toggleClass("is-active")
+
+
+
+
+}
+
+
+
+
+</script>
+
+
+
+            </div>
+        </div>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script> -->
+        <script src="assets/Print/print.min.js"></script>
+<!-- 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/js/darkmode.js"></script>
+        <script src="assets/js/bootstrap.js" crossorigin="anonymous"></script>
+        <script src="assets/js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="assets/js/datatables-simple-demo.js"></script> -->
+
+        
+        <!-- <script src="assets/js/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script> -->
+        <script src="assets/js/darkmode.js"></script>
+        <script src="assets/js/bootstrap.js" crossorigin="anonymous"></script>
+        <script src="assets/js/scripts.js"></script>
+        <script src="assets/js/simple-database.js" crossorigin="anonymous"></script>
+        <script src="assets/js/datatables-simple-demo.js"></script>
+    </body>
+</html>

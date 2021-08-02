@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>DashBoard</title>
+ 
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+        
+        <link href="assets/css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="assets/css/darkmode.css">
+        <script src="assets/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="assets/js/jquery.min.js"></script>
+<!-- <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>  -->
+
+
+  </head>
+    <body   class="sb-nav-fixed">
+        <div class="loading-overlay is-active">
+            <span class="fas fa-spinner fa-3x fa-spin"></span>
+          </div>
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">MobileShop</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"> <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form> 
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="darkMode" checked="">
+                 
+              </div>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><svg class="svg-inline--fa fa-user fa-w-14 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="maintenance.html">Settings</a></li>
+                        <li><a class="dropdown-item" href="maintenance.html">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="maintenance.html">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>        <div id="layoutSidenav">
+    
+
+<div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Add Category</div>
+                          
+                            <a class="nav-link" href="buyadevice.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                              Buy A Device
+                            </a>
+
+                            <a class="nav-link" href="selladevice.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                              Sell A Device
+                            </a>
+                           
+
+                  
+                            
+                 
+                           
+                            
+                        </div>
+                    </div>
+                   
+                </nav>
+            </div>            <div id="layoutSidenav_content">                <main>
+                    <div class="container-fluid ">
+                        
+                        <div class="row" style="padding-top:  20px; ;">
+ 
+                        </div>
+            
+                
+<!-- table  -->
+<table id="example" class="display nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Model</th>
+            <th>IMEI</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>View</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- <tr>
+            <td>2</td>
+            <td>Tiger Nixon</td>
+            <td>System Architect</td>
+            <td>Edinburgh</td>
+            <td>2011/04/25</td>
+            <td>$320,800</td>
+            <td>$320,800</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>Garrett Winters</td>
+            <td>Accountant</td>
+            <td>Tokyo</td>
+            <td>2011/07/25</td>
+            <td>$170,750</td>
+            <td>$320,800</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Ashton Cox</td>
+            <td>Junior Technical Author</td>
+            <td>San Francisco</td>
+            <td>2009/01/12</td>
+            <td>$86,000</td>
+            <td>$320,800</td>
+        </tr>
+        <tr>
+            <td>41</td>
+            <td>Cedric Kelly</td>
+            <td>Senior Javascript Developer</td>
+            <td>Edinburgh</td>
+            <td>2012/03/29</td>
+            <td>$433,060</td>
+            <td>$320,800</td>
+        </tr>
+        <tr><td>Raihan miraj</td><td>01797482479</td><td>poco m2<br>poco m2<br>poco m2<br>poco m2<br>poco m2<br>poco m2</td><td>IMEI:46IMEI2:56<br>IMEI:46IMEI2:56<br>IMEI:46IMEI2:56<br>IMEI:46IMEI2:56<br>IMEI:46IMEI2:56<br>IMEI:46IMEI2:56</td><td>2500</td><td><span class="badge bg-dark">Sold</span></td><td><a href="invoice.php?id=103" class="btn btn-primary btn-sm">View</a></td></tr> -->
+
+    </tbody>
+   
+</table>
+
+<!-- table -->
+
+                    </div>
+                </main>
+           
+
+                <footer class="py-4 footerbg t mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; MobileShop 2021</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>            </div>
+        </div>
+    
+<script>
+ 
+</script>
+ 
+        <script src="assets/js/darkmode.js"></script>
+        <script src="assets/js/bootstrap.js" crossorigin="anonymous"></script>
+        <script src="assets/js/scripts.js"></script>
+
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    
+      
+
+
+                <script>
+ 
+    
+ $(document).ready(function() {
+
+
+
+
+     var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+// dataParsed(xhttp.responseText);
+dataParsed(xhttp.responseText);
+}
+};
+xhttp.open("GET", "https://burger-e7ea8-default-rtdb.firebaseio.com/buyer.json", true);
+xhttp.send();
+
+
+
+function dataParsed(dataall){
+
+var parseData = JSON.parse(dataall);
+var lengthObject = Object.keys(parseData).length;
+var i=0;
+Object.keys(parseData).forEach(e  => {
+i++;
+
+console.log();
+
+var data = parseData[e];
+var type=  data['type'];
+var mobileModel = [];
+var imeiNo =[];
+var priceSingle =[];
+// var customer_info = JSON.parse(data['customer_info']) ;
+// var mobile_info = JSON.parse(data['mobile_info']) ;
+// var recommendator_info = JSON.parse(data['recommendator_info']) ;
+
+var customer_info = data['customer_info'] ;
+var mobile_info = data['mobile_info'] ;
+var recommendator_info = data['recommendator_info'] ;
+
+
+var name = customer_info['name'];
+var phone = customer_info['phone'];
+var nid = customer_info['nid'];
+var bdris = customer_info['bdris'];
+var address = customer_info['address'];
+var birthdate = customer_info['birthdate'];
+
+
+
+mobile_info.forEach(mobile_details =>{
+var m_id = mobile_details['m_id'];
+var m_mobile = mobile_details['m_mobile'];
+var m_imei1 = mobile_details['m_imei1'];
+var m_imei2 = mobile_details['m_imei2'];
+var m_ram = mobile_details['m_ram'];
+var m_rom = mobile_details['m_rom'];
+var m_price = mobile_details['m_price'];
+var m_sold = mobile_details['m_sold'];
+var imeiPrint = 'IMEI:' + m_imei1 + '<br>IMEI2:' + m_imei2;
+mobileModel.push(m_mobile);
+imeiNo.push(imeiPrint);
+priceSingle.push(m_price);
+})
+console.log(priceSingle);
+// var mobile_info_Array = mobile_info['mobile_info'];
+
+
+var r_name = recommendator_info['name'];
+var r_phone = recommendator_info['phone'];
+var r_address = recommendator_info['address'];
+var button='';
+if(type==2){
+button = '<td><span class="badge bg-dark">Sold</span></td><td><a href="invoice.html?id='+e+'" class="btn btn-primary btn-sm">View</a></td>';
+}else if(type==1){
+button = '<td><span class="badge bg-warning text-dark">Bought</span></td><td><a href="sellerprofile.html?id='+e+'" class="btn btn-primary btn-sm">View</a></td>';
+}
+
+$("tbody").append('<tr><td>'+name+'</td><td>'+phone+'</td><td>'+mobileModel.join("<br>")+'</td><td>'+imeiNo.join("<br>")+'</td><td>'+priceSingle.join("<br>")+'</td>'+button+'</tr>');
+
+
+if(i==lengthObject){
+method2();
+}
+});
+
+}
+
+ 
+function  method2(){
+
+var table = $('#example').DataTable( {
+ rowReorder: {
+     selector: 'td:nth-child(2)'
+ },
+ responsive: true
+} );
+
+$(".loading-overlay").toggleClass("is-active")
+}
+} );
+</script>
+
+</body>
+</html>

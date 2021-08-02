@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Seller Profile</title>
+  
+        <link href="assets/css/spinner.css" rel="stylesheet" />
+        <link href="assets/css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="assets/css/darkmode.css">
+        <script src="assets/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script> 
+        <link rel="stylesheet" href="assets/css/grid-gallery.min.css">
+      </script>
+ <style>
+.nodisplay{
+  display: none;
+}
+
+ </style>
+         </head>
+    <body class="sb-nav-fixed">
+     
+      <div class="loading-overlay is-active">
+        <span class="fas fa-spinner fa-3x fa-spin"></span>
+      </div>
+      <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">MobileShop</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"> <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form> 
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="darkMode" checked="">
+             
+          </div>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><svg class="svg-inline--fa fa-user fa-w-14 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="maintenance.html">Settings</a></li>
+                    <li><a class="dropdown-item" href="maintenance.html">Activity Log</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="maintenance.html">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>             <div id="layoutSidenav">
+    
+
+<div id="layoutSidenav_nav">
+  <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <div class="sb-sidenav-menu-heading">Core</div>
+            <a class="nav-link" href="index.html">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Dashboard
+            </a>
+            <div class="sb-sidenav-menu-heading">Add Category</div>
+          
+            <a class="nav-link" href="buyadevice.html">
+                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Buy A Device
+            </a>
+
+            <a class="nav-link" href="selladevice.html">
+                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Sell A Device
+            </a>
+           
+
+  
+            
+ 
+           
+            
+        </div>
+    </div>
+   
+</nav>
+            </div>            <div id="layoutSidenav_content">
+            <div class="container-fluid px-4">
+            <div class="row">
+<div class="col-md-3">
+    <h1> </h1>
+</div>
+
+    <div id="c_data" class="col-md-6">
+
+
+<div class="secondheaderlogo" style="text-align:center;"><span class="logo"></span></div>
+        <div id="secondheader">
+            <div><span id="date">2021-07-31 10:19:50 </span></div>
+            <div id="logo" style="text-align:center;"> <span class="logo"></span> </div>
+            <div onclick="getAlert()" ><span  id="photos"></span></div>
+          </div>
+    
+
+     
+     
+ 
+ <br><br>
+ 
+ 
+<div class="buyerinfotitle"><span>Buyer Information</span> <hr style="width: 100%;"></div>
+  <table class="table table-borderless " style="  
+    
+    margin-left: 20px;">
+    <tbody id="customer_info">
+        <tr>
+            <th scope="row">Name</th>
+            <td id="c_name">: fsdfdf</td>
+            
+          </tr>
+      <tr>
+        <th scope="row">Phone</th>
+        <td id="c_phone">: sdfs</td>
+      
+      </tr>
+      <tr>
+        <th scope="row">Address</th>
+        <td  id="c_address">: fsfds</td>
+  
+      </tr>
+      <tr>
+        <th scope="row">NID</th>
+        <td  id="c_nid">: </td>
+      </tr>
+      <tr>
+        <th scope="row">Birth</th>
+        <td  id="c_bdris">: </td>
+      </tr>
+      <tr>
+        <th scope="row">Birth Date</th>
+        <td  id="c_birthdate">: </td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+
+  <div class="buyerinfotitle"><span>Mobile Information</span> <hr style="width: 100%;"></div>
+
+  <table class="table table-borderless "  style="margin-left: 20px;">
+     <tbody  id="mobile_info">
+
+      <!-- <tr>
+        <th scope="row">1.</th>
+        <th>Model : </th>
+        <td>: fdsfsdfds</td>
+    </tr>
+      <tr>
+        <th scope="row"></th>
+        <th scope="row">IMEI1 : </th>
+        <td>: fsd</td>
+        </tr>
+      <tr>
+        <th scope="row"></th>
+        <th scope="row">IMEI2 : </th>
+        <td>: </td>
+      </tr> -->
+
+             
+        </tbody>
+ 
+  </table>
+
+ 
+  <div class="row">
+    <div class="col-md-6">
+        <div class="recommendatorinfotitle"><span>Recommendator</span> <hr></div>
+        <table class="table table-borderless"  style="margin-left: 20px;">
+            <tbody id="recommendator_info">
+                <!-- <tr>
+                    <th scope="row">Name</th>
+                    <td>: </td>
+                    
+                  </tr>
+              <tr>
+                <th scope="row">Mobile</th>
+                <td>: </td>
+              
+              </tr>
+              <tr>
+                <th scope="row">Address</th>
+                <td>: </td>
+          
+              </tr> -->
+             
+              
+            </tbody>
+          </table>
+        
+            
+           
+      
+    </div>
+    <div class="col-md-6 x">
+        <div class="buyersignature">
+            <hr>
+        <span>Buyer Signature</span>
+        </div>
+    </div>
+   
+    </div>
+    
+  </div>
+     
+  <div  id="c_photo"  class="col-md-3">
+
+   
+ 
+ 
+
+  <div class="gg-container" style="padding:30px;">
+        <div id="c_imageBox" class="gg-box">
+
+                  
+        
+        
+            
+        </div>
+       
+       </div>
+
+       <!-- <link rel="stylesheet" href="assets/css/grid-gallery.min.css">
+       <script src="assets/js/grid-gallery.min.js"></script> -->
+ 
+
+
+  </div>
+ 
+
+
+
+</div>
+
+
+ </div>
+
+        
+        </div>
+        </div>
+     
+ <script>
+
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+var id=params.id;
+ console.log(id);
+
+ var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      
+sellerData(xhttp.responseText);
+   }
+};
+
+
+xhttp.open("GET", "https://burger-e7ea8-default-rtdb.firebaseio.com/buyer/"+id+".json", true);
+xhttp.send();
+ 
+ 
+//select data
+function sellerData(data){
+ var  data = JSON.parse(data);
+ 
+ var customer_info = data.customer_info;
+ var mobile_info = data.mobile_info;
+ var recommendator_info = data.recommendator_info;
+
+ var c_name = customer_info.name;
+ var c_phone = customer_info.phone;
+var c_address = customer_info.address;
+var c_nid = customer_info.nid;
+ var c_bdris = customer_info.bdris;
+ var c_birthdate = customer_info.birthdate;
+ var attached =  customer_info.attached;
+
+ var b_date = data.date;
+ $("#date").html(b_date);
+ 
+
+ $("#c_name").html(c_name);
+ $("#c_phone").html(c_phone);
+ $("#c_address").html(c_address);
+ $("#c_nid").html(c_nid);
+ $("#c_bdris").html(c_bdris);
+ $("#c_birthdate").html(c_birthdate);
+ mobile_info.forEach(element => {
+   var m_mobile = element.m_mobile;
+   var m_imei1 = element.m_imei1;
+   var m_imei2 = element.m_imei2;
+   var m_price = element.m_price;
+   var m_ram = element.m_ram;
+   var m_rom = element.m_rom;
+   var m_sold = element.m_sold;
+   if(m_sold==0){
+     m_sold = "Avaiable";
+   }else{
+     m_sold ="Sold";
+   }
+
+   $("#mobile_info").append(' <tr> <th scope="row">1.</th> <th>Model   </th> <td>  '+m_mobile+ ' (Ram : '+ m_ram+ ' Rom : ' + m_rom+ ') </td></tr><tr> <th scope="row"></th> <th scope="row">IMEI1  </th> <td> '+m_imei1+ '</td></tr><tr> <th scope="row"></th> <th scope="row">IMEI2   </th> <td> '+m_imei2+ ' </tr><tr></td><th scope="row"></th> <th scope="row">Price  </th> <td> '+m_price+ ' (' + m_sold + ')</td></tr>')
+ 
+});
+
+var r_address = recommendator_info.address;
+var r_name = recommendator_info.name;
+var r_phone = recommendator_info.phone;
+
+$("#recommendator_info").append(' <tr> <th scope="row">Name</th> <td>  '+r_name+ '</td></tr><tr> <th scope="row">Mobile</th> <td>  '+r_phone+ '</td></tr><tr> <th scope="row">Address</th> <td>  '+r_address+ '</td></tr>')
+
+
+var atlength =attached?  attached.length : null;
+var i=0;
+if(atlength!=null){
+  attached.forEach(element=>{
+i++;
+$("#c_imageBox").append('<img src="https://upload.blazebd.workers.dev/'+element+'">');
+ 
+})
+}
+
+
+
+getAlert()
+// $("#photo").click(function(){
+//   gridGallery({});
+// })
+ 
+// gridGallery({
+
+// // // gallery selector
+// // selector: "#mSelector",
+
+// // // enable dark mode
+// // darkMode: true,
+
+// // // or "horizontal"
+// // layout: "horizontal",
+
+// // // space between images
+// // gapLength: 4,
+
+// // // row height
+// // rowHeight: 180,
+
+// // // column width
+// // columnWidth: 200
+
+// });
+
+ }
+ 
+
+
+ 
+ 
+ function getAlert(){
+  //  $("#c_data").toggleClass("nodisplay");
+  const root = document.querySelector("body, html");
+const container = document.querySelector('.gg-container');
+const images = document.querySelectorAll(".gg-box > img");
+const l = images.length;
+
+for(var i = 0; i < l; i++) {
+  images[i].addEventListener("click", function(i) {
+    var currentImg = this;
+    const parentItem = currentImg.parentElement, screenItem = document.createElement('div');
+    screenItem.id = "gg-screen";
+    container.prepend(screenItem);
+    if (parentItem.hasAttribute('data-theme')) screenItem.setAttribute("data-theme", "dark");
+    var route = currentImg.src;
+    root.style.overflow = 'hidden';
+    screenItem.innerHTML = '<div class="gg-image"></div><div class="gg-close gg-btn">&times</div><div class="gg-next gg-btn">&rarr;</div><div class="gg-prev gg-btn">&larr;</div>';
+    const first = images[0].src, last = images[l-1].src;
+    const imgItem = document.querySelector(".gg-image"), prevBtn = document.querySelector(".gg-prev"), nextBtn = document.querySelector(".gg-next"), close = document.querySelector(".gg-close");
+    imgItem.innerHTML = '<img src="' + route + '">';
+
+    if (l > 1) {
+      if (route == first) {
+        prevBtn.hidden = true;
+        var prevImg = false;
+        var nextImg = currentImg.nextElementSibling;
+      }
+      else if (route == last) {
+        nextBtn.hidden = true;
+        var nextImg = false;
+        var prevImg = currentImg.previousElementSibling;
+      }
+      else {
+        var prevImg = currentImg.previousElementSibling;
+        var nextImg = currentImg.nextElementSibling;
+      }
+    }
+    else {
+      prevBtn.hidden = true;
+      nextBtn.hidden = true;
+    }
+
+    screenItem.addEventListener("click", function(e) {
+      if (e.target == this || e.target == close) hide();
+    });
+
+    root.addEventListener("keydown", function(e) {
+      if (e.keyCode == 37 || e.keyCode == 38) prev();
+      if (e.keyCode == 39 || e.keyCode == 40) next();
+      if (e.keyCode == 27 ) hide();
+    });
+
+    prevBtn.addEventListener("click", prev);
+    nextBtn.addEventListener("click", next);
+
+    function prev() {
+      prevImg = currentImg.previousElementSibling;
+      imgItem.innerHTML = '<img src="' + prevImg.src + '">';
+      currentImg = currentImg.previousElementSibling;
+      var mainImg = document.querySelector(".gg-image > img").src;
+      nextBtn.hidden = false;
+      prevBtn.hidden = mainImg === first;
+    };
+
+    function next() {
+      nextImg = currentImg.nextElementSibling;
+      imgItem.innerHTML = '<img src="' + nextImg.src + '">';
+      currentImg = currentImg.nextElementSibling;
+      var mainImg = document.querySelector(".gg-image > img").src;
+      prevBtn.hidden = false;
+      nextBtn.hidden = mainImg === last;
+    };
+
+    function hide() {
+      root.style.overflow = 'auto';
+      screenItem.remove();
+    };
+  });
+}
+  gridGallery({});
+  $(".loading-overlay").toggleClass("is-active");
+ }
+
+
+ 
+ 
+  
+//    $("#photo").click(function(){
+// //  alert(1);
+//  $("#miraj").src="assets/js/grid-gallery.min.js";
+// })
+
+
+
+ </script>
+
+<script src="assets/js/grid-gallery.min.js"></script>
+
+<script id="miraj"  src="" ></script>
+        <script src="assets/js/darkmode.js"></script>
+        <script src="assets/js/bootstrap.js" crossorigin="anonymous"></script>
+        <script src="assets/js/scripts.js"></script>
+
+    </body>
+</html>
