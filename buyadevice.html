@@ -149,9 +149,9 @@
   </div>
     
 
-
+ 
    <div id="attchedfile"  style=" position: relative;" class="mb-3">
-   
+    <div id="loader"></div>
   <label for="c_attached" class="form-label">Attatched Necessary File</label>
   <input name="c_attached" onchange="babe()" class="form-control" type="file" id="c_attached" multiple>
 </div>
@@ -312,7 +312,7 @@ let overlay = document.getElementsByClassName('loading-overlay')[0];
 
 
 <script>
- 
+ var arrayOfAjax = []
 function babe(){
   $("#loader").toggleClass("loader");
  var files = $("#c_attached")[0].files;
@@ -332,7 +332,7 @@ $("#attchedfile").append("<div class='text-muted' style='text-align:center;font-
                 success: function (msg) {
                    console.log(msg);
                   
-                    
+                   arrayOfAjax.push(msg);
                    
                  
                   //  $("#attchedfile").append("<h6>"+$("#c_attached")[0].files[i].name+" Has Uploaded</h6>")
@@ -360,9 +360,10 @@ $(document).ready(function(){
   $(document).ajaxStop(function(){
     if(isUploadDone==0){
       $("#loader").toggleClass("loader");
+    
       isUploadDone=1;
     }
-  
+  console.log(arrayOfAjax);
   });
 
 
@@ -541,6 +542,13 @@ $.ajax({
 
 
 
+    }else{
+      setInterval(function(){
+        $(".modal-body").html("File Is Uploading Wait");
+    
+    $("#clickTheButton").click();
+      }, 3000)
+    
     }
 
 
