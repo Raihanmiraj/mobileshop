@@ -11535,3 +11535,13 @@ display: none;
    background-color: rgb(238, 238, 238);
    padding: 0 3px;
  } 
+
+ .selectclass{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+ #okey{
+   border: none;
+
+ }
