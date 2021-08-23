@@ -111,45 +111,7 @@
         </tr>
     </thead>
     <tbody>
-        <!-- <tr>
-            <td>2</td>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>2011/04/25</td>
-            <td>$320,800</td>
-            <td>$320,800</td>
-        </tr>
-        <tr>
-            <td>22</td>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>2011/07/25</td>
-            <td>$170,750</td>
-            <td>$320,800</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-            <td>San Francisco</td>
-            <td>2009/01/12</td>
-            <td>$86,000</td>
-            <td>$320,800</td>
-        </tr>
-        <tr>
-            <td>41</td>
-            <td>Cedric Kelly</td>
-            <td>Senior Javascript Developer</td>
-            <td>Edinburgh</td>
-            <td>2012/03/29</td>
-            <td>$433,060</td>
-            <td>$320,800</td>
-        </tr>
-        <tr><td>Raihan miraj</td><td>01797482479</td><td>poco m2<br>poco m2<br>poco m2<br>poco m2<br>poco m2<br>poco m2</td><td>IMEI:46IMEI2:56<br>IMEI:46IMEI2:56<br>IMEI:46IMEI2:56<br>IMEI:46IMEI2:56<br>IMEI:46IMEI2:56<br>IMEI:46IMEI2:56</td><td>2500</td><td><span class="badge bg-dark">Sold</span></td><td><a href="invoice.php?id=103" class="btn btn-primary btn-sm">View</a></td></tr> -->
-
-    </tbody>
+     </tbody>
    
 </table>
 
@@ -199,8 +161,14 @@
      var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
-// dataParsed(xhttp.responseText);
-dataParsed(xhttp.responseText);
+ 
+ 
+if(JSON.parse(xhttp.responseText)  == null){
+    $(".loading-overlay").toggleClass("is-active");
+    $("table").html('<h1 style="text-align:center;">No data has Found</h1>');
+}else{
+    dataParsed(xhttp.responseText);
+}
 }
 };
 xhttp.open("GET", "https://burger-e7ea8-default-rtdb.firebaseio.com/buyer.json", true);
@@ -212,6 +180,11 @@ function dataParsed(dataall){
 
 var parseData = JSON.parse(dataall);
 var lengthObject = Object.keys(parseData).length;
+ 
+    
+ 
+
+ 
 var i=0;
 Object.keys(parseData).forEach(e  => {
 i++;
