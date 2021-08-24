@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,11 +9,7 @@
         <title></title>
         
  <link rel="stylesheet" type="text/css" href="assets/Print/print.css">
-        <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="assets/css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="assets/css/darkmode.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+ <script src="assets/js/variable.js"></script>
 
         <link href="assets/css/simple-database.css" rel="stylesheet" />
 
@@ -513,7 +505,7 @@ datadom(xhttp.responseText);
 };
 
 
-xhttp.open("GET", 'https://burger-e7ea8-default-rtdb.firebaseio.com/buyer/'+id+'.json', true);
+xhttp.open("GET", databaseUrl+'buyer/'+id+'.json', true);
 xhttp.send();
 
 

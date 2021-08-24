@@ -8,6 +8,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>DashBoard</title>
+        <script src="assets/js/variable.js"></script>
  
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
@@ -171,7 +172,7 @@ if(JSON.parse(xhttp.responseText)  == null){
 }
 }
 };
-xhttp.open("GET", "https://burger-e7ea8-default-rtdb.firebaseio.com/buyer.json", true);
+xhttp.open("GET", databaseUrl+"buyer.json", true);
 xhttp.send();
 
 

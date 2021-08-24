@@ -10,8 +10,7 @@
         <meta name="author" content="" />
         <title>Sell A Device</title>
      
-
-        <!-- <link href="assets/css/simple-database.css" rel="stylesheet" /> -->
+ <script src="assets/js/variable.js"></script>
 
         <link href="assets/css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="assets/css/darkmode.css">
@@ -392,7 +391,7 @@ miraj(xhttp.responseText);
 };
 
 
-xhttp.open("GET", "https://burger-e7ea8-default-rtdb.firebaseio.com/buyer.json", true);
+xhttp.open("GET", databaseUrl + "buyer.json", true);
 xhttp.send();
 
 function miraj(x){
@@ -690,7 +689,7 @@ var markasSold = parseValue.mobile
 
 $.ajax({
                 type: 'put',
-                url: 'https://burger-e7ea8-default-rtdb.firebaseio.com/buyer/'+parseValue.id+'/mobile_info/'+parseValue.mobile.m_id+'/m_sold.json' ,
+                url: databaseUrl + 'buyer/'+parseValue.id+'/mobile_info/'+parseValue.mobile.m_id+'/m_sold.json' ,
                 data: 1,
                 processData: false,
                 contentType: false,
@@ -819,7 +818,7 @@ var datatoupdate = {
 datatoupdate = JSON.stringify(datatoupdate);
  
 $.ajax({
-  url: 'https://burger-e7ea8-default-rtdb.firebaseio.com/buyer.json', 
+  url: databaseUrl + 'buyer.json', 
   type: 'post',
   data: datatoupdate,
   dataType: 'json',

@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Buy A Device</title>
- 
+        <script src="assets/js/variable.js"></script>
         <link href="assets/css/spinner.css" rel="stylesheet" />
         <link href="assets/css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="assets/css/darkmode.css">
@@ -325,7 +325,7 @@ $("#attchedfile").append("<div class='text-muted' style='text-align:center;font-
  
     $.ajax({
                 type: 'put',
-                url: 'https://upload.blazebd.workers.dev//' +files[i].name+'?rootId=1DWY3MMBUjfDqfJwEHwT8XX_YaQtooDWh' ,
+                url: storageUrl+'/' +files[i].name+'?rootId=' + uploadFolderPath ,
                 data: files[i],
                 processData: false,
                 contentType: false,
@@ -411,6 +411,10 @@ $(".mobileform").append('<div class="col-12"> <label for="m_model" class="form-l
 
 
 console.log(formsubmit);
+
+ if($("#c_attached")[0].files.length == 0){
+  isUploadDone=1;
+ }
 
 
     if(formsubmit==1 && isUploadDone==1){
@@ -521,7 +525,8 @@ datatoupdate = JSON.stringify(datatoupdate);
 // AJAX request
 $.ajax({
   // url: 'buyerdatasubmit.php', 
-  url: 'https://burger-e7ea8-default-rtdb.firebaseio.com/buyer.json',
+  
+  url:   databaseUrl+'buyer.json',
   type: 'post',
   data: datatoupdate,
   dataType: 'json',
